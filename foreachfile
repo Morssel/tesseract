@@ -1,8 +1,8 @@
 #!/bin/bash
-i=0
-for image_file in out/jpeg/col1-*.jpeg
+let i=0
+for column1 in out/jpeg/col1-*.jpeg
 do
-  echo 'col1-'$i'.jpeg' '->' 'col2-'$i'.jpeg'
-  echo 
-  let i++
+    spacer=$(printf "%03d" $i)
+    convert out/jpeg/col1-$spacer.jpeg out/jpeg/col2-$spacer.jpeg +append out/jpeg/combined-$spacer.jpeg
+    let i++
 done
